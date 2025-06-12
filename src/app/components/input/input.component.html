@@ -1,0 +1,40 @@
+<div
+  [ngClass]="{
+    'disabledTheme flex flex-col gap-4': disabled,
+    'flex flex-col gap-4': !disabled
+  }"
+>
+  <label for="search" *ngIf="label">{{ label }}</label>
+  <div class="flex items-center gap-2 px-5 py-3 bg-[#87878769] justify-between">
+    <svg
+      *ngIf="hasIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-6 w-[10%]"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+      />
+    </svg>
+
+    <input
+      [id]="name"
+      [name]="name"
+      [type]="type"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="onInputChagne($event)"
+      class="outline-none w-[80%]"
+      [ngClass]="{
+        'placeholder:text-end': hasIcon,
+        'placeholder:text-start': !hasIcon
+      }"
+    />
+  </div>
+</div>

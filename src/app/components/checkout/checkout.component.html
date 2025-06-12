@@ -1,0 +1,113 @@
+<div class="my-6">
+  <h2 class="text-3xl font-bold mb-4">Checkout</h2>
+  <div class="flex justify-between">
+    <div>
+      <form (submit)="handleSubmit($event)" class="flex flex-col gap-5">
+        <div class="flex flex-col gap-3">
+          <p class="text-xl font-bold">Credit Info</p>
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="First Name"
+                class="border border-gray-400 px-5 py-2 placeholder:text-gray-400"
+              />
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Last Name"
+                class="border border-gray-400 px-5 py-2 placeholder:text-gray-400"
+              />
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <input
+              type="text"
+              id="iban"
+              name="iban"
+              placeholder="Enter your credit Number"
+              class="border border-gray-400 px-5 py-2 w-[80%] placeholder:text-gray-400"
+            />
+            <input
+              type="text"
+              id="ccv"
+              name="ccv"
+              placeholder="CCV"
+              class="border border-gray-400 px-5 py-2 w-[20%] placeholder:text-gray-400"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <p class="text-xl font-bold">Shipping Address</p>
+
+          <input
+            type="text"
+            id="country"
+            name="country"
+            placeholder="Country"
+            class="border border-gray-400 px-5 py-2 placeholder:text-gray-400"
+          />
+
+          <input
+            type="text"
+            id="state"
+            name="state"
+            placeholder="State/Region"
+            class="border border-gray-400 px-5 py-2 placeholder:text-gray-400"
+          />
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Address"
+            class="border border-gray-400 px-5 py-2 placeholder:text-gray-400"
+          />
+          <div class="flex items-center gap-4">
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="City"
+              class="border border-gray-400 px-5 py-2 placeholder:text-gray-400"
+            />
+            <input
+              type="text"
+              id="postal_code"
+              name="postal_code"
+              placeholder="Postal Code"
+              class="border border-gray-400 px-5 py-2 placeholder:text-gray-400"
+            />
+          </div>
+        </div>
+        <button
+          class="self-end w-[100%] bg-[#9D9D9D] py-2 cursor-pointer font-bold"
+        >
+          Pay Now!
+        </button>
+      </form>
+    </div>
+    <div class="relative border px-6 py-8 w-[35%]">
+      <div class="absolute bg-white text-black top-0 end-0 py-2 px-3 font-bold">
+        (2)
+      </div>
+      <div class="mb-4"><h3 class="text-3xl">Your Order</h3></div>
+      <div class="pb-7 border-b border-gray-400">
+        <div class="flex flex-col gap-7">
+          @for(product of cartItems;track product.id){
+          <app-cart-item [productData]="product"></app-cart-item>
+          }
+        </div>
+      </div>
+
+      <div class="pt-7">
+        <div class="flex justify-between">
+          <p class="font-bold text-2xl">Total</p>
+          <p class="text-2xl">$ {{ total }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
