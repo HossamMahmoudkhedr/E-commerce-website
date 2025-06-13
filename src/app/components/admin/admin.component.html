@@ -1,0 +1,33 @@
+<div class="flex flex-col items-center gap-7">
+  <h1 class="font-bold text-3xl">All Products</h1>
+  <div class="flex flex-col w-[100%] gap-4">
+    @for(product of products; track product.id){
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <p>Name:</p>
+        <p>{{ product.name }}</p>
+      </div>
+      <div class="flex w-[53%] justify-between">
+        <div class="flex items-center gap-2">
+          <p>Price:</p>
+          <p>{{ product.price }}</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            [routerLink]="'/edit/' + product.id"
+            class="bg-blue-500 px-3 py-2 text-white cursor-pointer"
+          >
+            Edit
+          </a>
+          <button
+            (click)="deleteProduct(product.id)"
+            class="bg-red-600 px-3 py-2 text-white cursor-pointer"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

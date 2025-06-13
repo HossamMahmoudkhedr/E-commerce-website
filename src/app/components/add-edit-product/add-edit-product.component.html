@@ -1,0 +1,52 @@
+<div class="flex items-center justify-center">
+  <form class="flex flex-col gap-4">
+    <img
+      [src]="status === 'edit' ? product.image : ''"
+      alt=""
+      class="w-[30%]"
+    />
+
+    <div class="flex flex-col items-center gap-6">
+      <app-input
+        name="name"
+        type="text"
+        label="Product Name"
+        (valueChagne)="handleChange($event)"
+        placeholder="Enter the name of the product"
+        [value]="status === 'edit' ? product.name : ''"
+      ></app-input>
+
+      <app-input
+        name="price"
+        type="text"
+        label="Price"
+        (valueChagne)="handleChange($event)"
+        placeholder="Enter the price of the product"
+        [value]="status === 'edit' ? product.price : ''"
+      ></app-input>
+
+      <app-input
+        name="description"
+        type="text"
+        label="Description"
+        (valueChagne)="handleChange($event)"
+        placeholder="Enter the description"
+        [value]="status === 'edit' ? product.description : ''"
+      ></app-input>
+
+      <app-input
+        (valueChagne)="handleChange($event)"
+        name="image"
+        type="file"
+        label="Product Image"
+      ></app-input>
+    </div>
+
+    <button
+      (click)="submitForm($event)"
+      class="py-3 bg-black text-white capitalize"
+    >
+      {{ status }}
+    </button>
+  </form>
+</div>

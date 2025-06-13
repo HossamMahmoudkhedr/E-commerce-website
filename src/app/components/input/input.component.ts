@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class InputComponent {
   @Input() name: string = '';
-  @Input() value: string = '';
+  @Input() value: string | undefined | number = '';
   @Input() disabled: boolean = false;
   @Input() label: string = '';
   @Input() type: string = '';

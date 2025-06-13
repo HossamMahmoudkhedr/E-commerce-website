@@ -21,9 +21,10 @@ export class CheckoutComponent {
   }
   handleSubmit(e: Event) {
     e.preventDefault();
-
-    fetchData('/orders', 'POST', { ...this.cartItems }).then((data) => {
-      console.log(data);
+    this.cartItems.map((item) => {
+      fetchData('/orders', 'POST', item).then((data) => {
+        console.log(data);
+      });
     });
   }
 }
